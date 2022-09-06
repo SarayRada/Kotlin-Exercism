@@ -1,7 +1,7 @@
 fun twofer(name: String): String {
-    if (name == null){
-        println("One for you, one for me.")
+    return if (name.isEmpty()){
+        "One for you, one for me."
     } else {
-        println("One for $name, one for me.")
+        "One for $name, one for me."
     }
 }
