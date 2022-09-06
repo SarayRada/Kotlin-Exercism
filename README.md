@@ -1,3 +1,3 @@
 # Kotlin-Exercism
 Ejercicios de kotlin
-Hamming --> 3:30
+Hamming --> 10 min tardé a la hora de entender como funcionaban los test -.-
