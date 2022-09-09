@@ -1,5 +1,5 @@
 object PigLatin {
-    fun translateEach(phrase: String): String {
+    fun translator(phrase: String): String {
         val vowelsSound: List<String> = listOf("a", "e", "i", "o", "u")
         val consonant: List<Char> = listOf(
             'b',
@@ -44,32 +44,31 @@ object PigLatin {
             wordsLast = phrase.substringAfter(initialConsonants)
             return "${wordsLast}${initialConsonants}ay"
 
-        } else if (consonant.any { phrase.startsWith(it) }) {
-            initialConsonants = phrase.takeWhile { consonant.contains(it) && it != 'y' }
-            wordsLast = phrase.substringAfter(initialConsonants)
-            return "${wordsLast}${initialConsonants}ay"
-
         }
-        return "i don't understand the word"
+        initialConsonants = phrase.takeWhile { consonant.contains(it) && it != 'y' }
+        wordsLast = phrase.substringAfter(initialConsonants)
+        return "${wordsLast}${initialConsonants}ay"
+
+
     }
 
     fun translate(phrase: String): String {
         if (!phrase.contains(" ")){
-            return translateEach(phrase)
+            return translator(phrase)
         } else {
-            val eachWord = phrase.split(" ")
-            var newPhrase: String = ""
+            val phraseSeparated = phrase.split(" ")
+            var phrasePigLatin: String = ""
             var word: String
-            for (each in eachWord) {
-                if (each == eachWord.last()){
-                    word = translateEach(each)
-                    newPhrase += word
+            for (eachWord in phraseSeparated) {
+                if (eachWord == phraseSeparated.last()){
+                    word = translator(eachWord)
+                    phrasePigLatin += word
                 } else {
-                    word = translateEach(each)
-                    newPhrase += "$word "
+                    word = translator(eachWord)
+                    phrasePigLatin += "$word "
                 }
             }
-            return newPhrase
+            return phrasePigLatin
         }
     }
 }
