@@ -12,7 +12,7 @@ object PigLatin {
                     initialConsonants = "qu"
                     wordsLast = phrase.substringAfter(initialConsonants)
                 } else {
-                    initialConsonants = phrase.takeWhile {consonant.contains(it)} 
+                    initialConsonants = phrase.takeWhile {consonant.contains(it)}  
                     wordsLast = phrase.substringAfter(initialConsonants)
                 }
             return "${wordsLast}${initialConsonants}ay"
