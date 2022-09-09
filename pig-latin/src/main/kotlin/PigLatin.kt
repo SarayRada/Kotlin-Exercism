@@ -26,7 +26,9 @@ object PigLatin {
         )
         val initialConsonants: String
         val wordsLast: String
-        if (vowelsSound.any { phrase.startsWith(it) } || phrase.startsWith("xr") || phrase.startsWith("yt")) {
+        if (vowelsSound.any { phrase.startsWith(it) } ||
+            phrase.startsWith("xr") ||
+            phrase.startsWith("yt")) {
             return "${phrase}ay"
 
         } else if (phrase.startsWith("qu")) {
