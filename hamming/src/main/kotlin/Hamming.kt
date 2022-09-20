@@ -1,7 +1,4 @@
-import java.lang.IllegalArgumentException
-
 object Hamming {
-
     fun compute(leftStrand: String, rightStrand: String): Int {
         if (leftStrand.length == rightStrand.length) {
             var difference = 0

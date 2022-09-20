@@ -6,8 +6,7 @@ import java.time.Month
 class Gigasecond() {
     lateinit var date: LocalDateTime
     constructor(localDate: LocalDate) : this() {
-        val time: LocalTime = LocalTime.of(0, 0, 0)
-        date = LocalDateTime.of(localDate, time).plusSeconds(1_000_000_000)
+        date = localDate.atStartOfDay().plusSeconds(1_000_000_000)
     }
 
     constructor(localDateTime: LocalDateTime) : this() {
