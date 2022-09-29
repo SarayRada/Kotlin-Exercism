@@ -5,9 +5,7 @@ object Flattener {
         for (element in source) {
             if (element is Int) newSource.add(element)
             if (element is List<*>){
-                val newList =flatten(element)
-                    flatten(element)
-                for (each in newList) newSource.add(each)
+                for (each in flatten(element)) newSource.add(each)
             }
         }
         return newSource
