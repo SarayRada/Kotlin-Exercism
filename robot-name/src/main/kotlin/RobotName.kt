@@ -6,7 +6,7 @@ class Robot {
     }
 
     companion object {
-        private var robotNameSaver = mutableListOf<String>()
+        private val robotNameSaver = mutableListOf<String>()
     }
 
     fun reset() {
