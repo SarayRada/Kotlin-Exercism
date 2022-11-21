@@ -2,7 +2,7 @@ class Robot {
 
     var name: String
     init {
-        name = createNewName()
+        name = returnNewName()
     }
 
     companion object {
@@ -10,22 +10,16 @@ class Robot {
     }
 
     fun reset() {
-        name = createNewName()
+        name = returnNewName()
     }
 
-    private fun createNewName():String{
-        name = RandomName().getRandomString()
-        if (robotNameSaver.contains(name)) createNewName()
+    private fun returnNewName():String{
+        name = createARandomName()
+        if (robotNameSaver.contains(name)) returnNewName()
         else robotNameSaver.add(name)
         return name
     }
-}
-
-class RandomName (){
-    companion object{
-        private var robotNameSaver = mutableListOf<String>()
-    }
-    fun getRandomString() : String {
+    private fun createARandomName() : String {
         val allowedCharsLetter = ('A'..'Z')
         val allowInt = ('0'..'9')
         val newName = (1..2)
@@ -35,6 +29,7 @@ class RandomName (){
         return newName.joinToString  ("")
     }
 }
+
 
 
 
